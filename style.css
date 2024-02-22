@@ -47,7 +47,10 @@ body {
     color: #FAA6AE;
 }
 
-.wheel-description li p {}
+.wheel-description li p {
+    position: relative;
+    top: -20px;
+}
 
 
 
