@@ -19,6 +19,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    overflow: hidden;
 }
 
 /* Стили блока описание */
@@ -122,8 +123,9 @@ body {
     /* включаем «гибкую» вёрстку */
     display: flex;
     align-items: center;
+    justify-content: space-around;
     /* задаём отступы от краёв блока */
-    padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 20);
+    padding: 0 calc(var(--size) / 4.5) 0 calc(var(--size) / 50);
     /* устанавливаем размеры */
     width: 50%;
     height: 50%;
@@ -215,6 +217,18 @@ body {
     color: white;
     /* настраиваем длительность анимации */
     animation: selected 800ms ease;
+}
+
+.prize .text {
+    transform: rotate(270deg);
+    font-size: 20px;
+    text-align: center;
+    flex: 0 0 140px;
+}
+
+.prize img {
+    transform: rotate(156deg);
+    margin-left: -35px;
 }
 
 /* настраиваем анимацию текста на выпавшем секторе по кадрам */

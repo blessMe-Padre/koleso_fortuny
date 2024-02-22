@@ -3,35 +3,43 @@ const prizes = [
     {
         text: "Скидка 10%",
         color: "#FAA6AE",
+        image: "./img/product-img.png",
 
     },
     {
-        text: "Дизайн в подарок",
+        text: "Дизайн&nbsp;в подарок",
         color: "#FAA6AE",
+        image: "./img/product-img.png",
     },
     {
         text: "Второй сайт бесплатно",
         color: "hsl(43 74% 66%)",
+        image: "./img/product-img.png",
     },
     {
         text: "Скидка 50%",
         color: "hsl(27 87% 67%)",
+        image: "./img/product-img.png",
     },
     {
-        text: "Блог в подарок",
+        text: "Блог&nbsp;в подарок",
         color: "hsl(12 76% 61%)",
+        image: "./img/product-img.png",
     },
     {
         text: "Скидок нет",
         color: "hsl(350 60% 52%)",
+        image: "./img/product-img.png",
     },
     {
-        text: "Таргет в подарок",
+        text: "Таргет&nbsp;в подарок",
         color: "hsl(91 43% 54%)",
+        image: "./img/product-img.png",
     },
     {
         text: "Скидка 30% на всё",
         color: "hsl(140 36% 74%)",
+        image: "./img/product-img.png",
     }
 ];
 
@@ -64,7 +72,7 @@ let prizeNodes;
 // расставляем текст по секторам
 const createPrizeNodes = () => {
     // обрабатываем каждую подпись
-    prizes.forEach(({ text, color, reaction }, i) => {
+    prizes.forEach(({ text, color, reaction, image }, i) => {
         // каждой из них назначаем свой угол поворота
         const rotation = ((prizeSlice * i) * -1) - prizeOffset;
         // добавляем код с размещением текста на страницу в конец блока spinner
@@ -73,6 +81,7 @@ const createPrizeNodes = () => {
             // текст при этом уже оформлен нужными стилями
             `<li class="prize" data-reaction=${reaction} style="--rotate: ${rotation}deg">
           <span class="text">${text}</span>
+          <img src="${image}">
         </li>`
         );
     });
