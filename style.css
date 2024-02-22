@@ -34,7 +34,7 @@ body {
 }
 
 .wheel-description ol {
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .wheel-description li {
@@ -122,6 +122,7 @@ body {
 .prize {
     /* включаем «гибкую» вёрстку */
     display: flex;
+    gap: 30px;
     align-items: center;
     justify-content: space-around;
     /* задаём отступы от краёв блока */
@@ -227,7 +228,7 @@ body {
 }
 
 .prize img {
-    transform: rotate(156deg);
+    transform: rotate(271deg);
     margin-left: -35px;
 }
 
@@ -259,4 +260,27 @@ body {
     85% {
         transform: scale(1);
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.prize-img {
+    /* transform: rotate(154deg); */
+}
+
+.btn-spin-reload {
+    color: #ffffff;
+    background-color: #FAA6AE;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.wheel-description-result p {
+    margin: 10px 0;
 }

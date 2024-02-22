@@ -1,45 +1,60 @@
 // надписи и цвета на секторах
 const prizes = [
     {
-        text: "Скидка 10%",
+        text: "Промокод на скидку 5%",
+        color: "hsl(140 36% 74%)",
+        image: "./img/product-img.png",
+        description: "Введите его в корзине при оформлении заказа и получите скидку",
+        title: "Промокод на скидку 5%",
+    },
+    {
+        text: "Карточка мужской группы",
+        color: "hsl(140 36% 74%)",
+        image: "./img/man.png",
+        description: "Она автоматически будет добавлена в корзину при оформлении заказа",
+        title: "Карточка мужской группы",
+    },
+    {
+        text: "Промокод на скидку 15%",
+        color: "hsl(140 36% 74%)",
+        image: "./img/product-img.png",
+        description: "Введите его в корзине при оформлении заказа и получите скидку",
+        title: "Промокод на скидку 15%",
+    },
+    {
+        text: "Карточка женской группы",
+        color: "hsl(140 36% 74%)",
+        image: "./img/woman.png",
+        description: "Она автоматически будет добавлена в корзину при оформлении заказа",
+        title: "Карточка мужской группы",
+    },
+    {
+        text: "Промокод на скидку 5%",
         color: "#FAA6AE",
         image: "./img/product-img.png",
-
-    },
-    {
-        text: "Дизайн&nbsp;в подарок",
-        color: "#FAA6AE",
-        image: "./img/product-img.png",
-    },
-    {
-        text: "Второй сайт бесплатно",
-        color: "hsl(43 74% 66%)",
-        image: "./img/product-img.png",
-    },
-    {
-        text: "Скидка 50%",
-        color: "hsl(27 87% 67%)",
-        image: "./img/product-img.png",
-    },
-    {
-        text: "Блог&nbsp;в подарок",
-        color: "hsl(12 76% 61%)",
-        image: "./img/product-img.png",
+        description: "Введите его в корзине при оформлении заказа и получите скидку",
+        title: "Промокод на скидку 15%",
     },
     {
         text: "Скидок нет",
-        color: "hsl(350 60% 52%)",
-        image: "./img/product-img.png",
+        color: "hsl(140 36% 74%)",
+        image: "",
+        description: "",
+        title: "вы ничего не выиграли",
     },
     {
-        text: "Таргет&nbsp;в подарок",
-        color: "hsl(91 43% 54%)",
-        image: "./img/product-img.png",
+        text: "Карточка мужской группы",
+        color: "hsl(140 36% 74%)",
+        image: "./img/man.png",
+        description: "Она автоматически будет добавлена в корзину при оформлении заказа",
+        title: "Карточка мужской группы",
     },
     {
         text: "Скидка 30% на всё",
         color: "hsl(140 36% 74%)",
         image: "./img/product-img.png",
+        description: "Введите его в корзине при оформлении заказа и получите скидку",
+        title: "промокод на скидку 5%",
     }
 ];
 
@@ -47,6 +62,9 @@ const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
 const trigger = document.querySelector(".btn-spin");
 const ticker = wheel.querySelector(".ticker");
+const wheelDescriptionStart = document.querySelector('.wheel-description-start');
+const wheelDescriptionResultWrapper = document.querySelector('.wheel-description-result');
+const wheelDescriptionResult = document.querySelector('.wheel-inner');
 
 // на сколько секторов нарезаем круг
 const prizeSlice = 360 / prizes.length;
@@ -67,7 +85,6 @@ let rotation = 0;
 let currentSlice = 0;
 // переменная для текстовых подписей
 let prizeNodes;
-
 
 // расставляем текст по секторам
 const createPrizeNodes = () => {
@@ -194,4 +211,36 @@ spinner.addEventListener("transitionend", () => {
 const selectPrize = () => {
     const selected = Math.floor(rotation / prizeSlice);
     prizeNodes[selected].classList.add(selectedClass);
+
+    wheelDescriptionStart.classList.add('hidden');
+    wheelDescriptionResultWrapper.classList.remove('hidden');
+
+    // Получаем объект выбранного приза из массива
+    const selectedPrize = prizes[selected];
+
+    // Создаем элемент для изображения и устанавливаем его атрибуты
+    const img = document.createElement('img');
+    img.src = selectedPrize.image;
+    img.classList.add('prize-img');
+    img.alt = 'Prize Image';
+
+
+    // Создаем элемент для заголовка
+    const title = document.createElement('p');
+    title.textContent = selectedPrize.title;
+
+    // Создаем элемент для описания
+    const description = document.createElement('p');
+    description.textContent = selectedPrize.description;
+
+    // Добавляем созданные элементы в div
+    wheelDescriptionResult.appendChild(title);
+    wheelDescriptionResult.appendChild(img);
+    wheelDescriptionResult.appendChild(description);
 };
+
+
+const btnSpinRreload = document.querySelector('.btn-spin-reload');
+btnSpinRreload.addEventListener('click', () => {
+    window.location.reload();
+});
