@@ -1,9 +1,5 @@
 // надписи и цвета на секторах
 const prizes = [
-    // {
-    //     text: "Скидка 10%",
-    //     color: "hsl(197 30% 43%)",
-    // },
     {
         text: "Скидка 10%",
         color: "#FAA6AE",
@@ -41,7 +37,7 @@ const prizes = [
 
 const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
-const trigger = wheel.querySelector(".btn-spin");
+const trigger = document.querySelector(".btn-spin");
 const ticker = wheel.querySelector(".ticker");
 
 // на сколько секторов нарезаем круг
